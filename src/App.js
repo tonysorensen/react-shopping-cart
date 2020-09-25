@@ -14,15 +14,15 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const addItem = (item) => {
-    // console.log("item", item);
-    setCart([...cart, { product: item }]);
+    console.log("item", item);
+    setCart([...cart, { item: item }]);
   };
-  console.log(cart);
+  console.log("cart from addItem in App", cart);
   return (
     <div className="App">
       <ProductContext.Provider value={{ products, addItem }}>
         <CartContext.Provider value={cart}>
-          <Navigation cart={cart} />
+          <Navigation />
 
           {/* Routes */}
           <Route exact path="/">
@@ -30,7 +30,7 @@ function App() {
           </Route>
 
           <Route path="/cart">
-            <ShoppingCart cart={cart} />
+            <ShoppingCart />
           </Route>
         </CartContext.Provider>
       </ProductContext.Provider>

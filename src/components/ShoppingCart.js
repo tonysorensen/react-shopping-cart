@@ -5,10 +5,14 @@ import Item from "./ShoppingCartItem";
 
 const ShoppingCart = () => {
   const cart = useContext(CartContext);
+
   const getCartTotal = () => {
+    console.log("ShoppingCart cart", cart);
+
     return cart
       .reduce((acc, value) => {
-        return acc + value.price;
+        console.log("value", value);
+        return acc + value.item.price;
       }, 0)
       .toFixed(2);
   };
